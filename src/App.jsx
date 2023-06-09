@@ -12,6 +12,7 @@ import ProductsDetail from './pages/ProductsDetail'
 import Loader from './components/Loader'
 import { useSelector } from 'react-redux'
 import Container from 'react-bootstrap/Container';
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 function App() {
   
@@ -42,9 +43,13 @@ function App() {
           /purchases
           */}
           <Route 
-            element={ <Favorites/>}
-            path='/favorites'
-          />        
+          element={ <ProtectedRoutes/> }
+          >
+              <Route 
+                element={ <Favorites/>}
+                path='/favorites'
+              /> 
+          </Route>        
         </Routes>
       </Container>
     </HashRouter>
